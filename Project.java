@@ -122,6 +122,8 @@ public class Project {
 			  System.out.println("Your working hours  : 9.00 am to  9.00pm");
 		  }else if(sal==13) {
 			  System.out.println("Your working hours  : 9.00 am to  10.00pm");
+		  }else if(sal==14) {
+			  System.out.println("Your working hours  : 9.00 am to  11.00pm");
 		  }
 	}
 	  
