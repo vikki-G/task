@@ -3,15 +3,18 @@ package sam;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Scanner;
 
 public class Project {
 	static Scanner a;
 	static int ss;
 	static String job ;
+	static int sal;
   public static void empname() {
 	  a= new Scanner(System.in);
       System.out.println("enter Your Name :");
@@ -61,43 +64,66 @@ public class Project {
 		}else if(as<=4){
 			ss = as+(as*2080);
 		}else if(as<=6) {
-			ss = as+(as*2880);
+			ss = as+(as*3080);
 		}else if(as<=8) {
-			ss = as+(as*3480);
+			ss = as+(as*3880);
 		}else if(as<=10) {
-			ss = as+(as*4080);
+			ss = as+(as*5080);
 		}else if(as<=12) {
-			ss = as+(as*5880);
+			ss = as+(as*6880);
 		}else if(as<=14) {
-			ss = as+(as*7480);
+			ss = as+(as*8480);
+		}else if(as<=16) {
+			ss = as+(as*12480);
 		}
 
 	}
 	  	public static void salary() {
 	  		System.out.println("General shift 8 hours.... Enter your working hours");
 	  		a = new Scanner(System.in);
-	  		int sal = a.nextInt();
-	  		HashMap<Integer, Integer> has = new HashMap<>();
-	  		has.put(8, 16000);
-	  		has.put(9, 17500);
-	  		has.put(10, 19000);
-	  		has.put(11, 20500);
-	  		has.put(12, 22000);
-	  		has.put(13, 23500);
-	  	   System.out.println("your salay per month is :"+(ss+ has.get(sal)));
-	  	   System.out.println("Your role is :"+job);
+	  		sal = a.nextInt();
+	  		if (sal<=13&&sal>=8) {
+	  			HashMap<Integer, Integer> has = new HashMap<Integer, Integer>();
+		  		has.put(8, 16000);
+		  		has.put(9, 17500);
+		  		has.put(10, 19000);
+		  		has.put(11, 20500);
+		  		has.put(12, 22000);
+		  		has.put(13, 23500);
+		  		has.put(14, 25500);
+		  	   System.out.println("your salay per month is :"+(ss+ has.get(sal)));
+		  	   System.out.println("Your role is :"+job);
+		  	 int temp;
+			 
+			  while (true) {
+				  int empno = 21230;
+				 temp=empno++;
+				System.out.println("Your Empolyee number is  :"+empno);
+				
+				break;
+			}	
+			} else {
+                 System.err.println("Enter valid hours! the work will be 8 hours compulsory");
+			}
 		}
-	  public static void generateEmpId() {
-		 int temp;
-		 
-		  while (true) {
-			  int empno = 21230;
-			 temp=empno++;
-			System.out.println("Your Empolyee number is  :"+empno);
-			
-			break;
-		}	
-		}
+	 	
+		
+	  public static void timing() {
+		  if (sal==8) {
+		  
+		  System.out.println("Your working hours  : 9.00 am to  5.00pm");
+		  }else if(sal==9) {
+			  System.out.println("Your working hours  : 9.00 am to  6.00pm");
+		  }else if(sal==10) {
+			  System.out.println("Your working hours  : 9.00 am to  7.00pm");
+		  }else if(sal==11) {
+			  System.out.println("Your working hours  : 9.00 am to  8.00pm");
+		  }else if(sal==12) {
+			  System.out.println("Your working hours  : 9.00 am to  9.00pm");
+		  }else if(sal==13) {
+			  System.out.println("Your working hours  : 9.00 am to  10.00pm");
+		  }
+	}
 	  
   public static void main(String[] args) throws ParseException {
 	empname();
@@ -107,7 +133,8 @@ public class Project {
 	jobdesignation();
 	fresherOrExprience();
 	salary();
-	generateEmpId();
+
+	timing();
 	
 }
 }
